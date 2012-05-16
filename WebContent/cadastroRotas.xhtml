@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro de Rotas</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel id="pnl" header="Nova Rota"
+			style="margin-bottom:10px;max-width: 50%; min-width: 50%">
+			<p:messages id="messages" />
+			<h:panelGrid columns="2">
+				<h:outputLabel for="rota" value="Nome da Rota :" />
+				<p:inputText id="rota" value="#{rotaBean.rota.descricao}"
+					required="true" label="Rota">
+					<f:validateLength minimum="2" />
+				</p:inputText>
+
+				<p:message for="rota" />
+
+				<f:facet name="footer">
+					<p:commandButton value="Cadastrar"
+						actionListener="#{RotaBean.persist}" ajax="false" />
+				</f:facet>
+			</h:panelGrid>
+		</p:panel>
+		<p:panel>
+			<p:dataTable id="rotas" var="rotas" value="#{rotaBean.list}"
+				tableStyle="width:auto">
+
+				<p:column headerText="Ids" style="width:100px">
+					<h:outputText value="#{rotas.id}" />
+				</p:column>
+				<p:column headerText="Nome" style="width:100px">
+					<h:outputText value="#{rotas.descricao}" />
+				</p:column>
+
+			</p:dataTable>
+		</p:panel>
+		<p:panel>
+			<p:dataTable id="enderecos" var="enderecos"
+				value="#{rotaBean.rota.enderecos}" tableStyle="width:auto">
+
+				<p:column headerText="Ids" style="width:100px">
+					<h:outputText value="#{enderecos.id}" />
+				</p:column>
+				<p:column headerText="Logradouro" style="width:100px">
+					<h:outputText value="#{enderecos.logradouro}" />
+				</p:column>
+				<p:column headerText="Num" style="width:100px">
+					<h:outputText value="#{enderecos.numero}" />
+				</p:column>
+				<p:column headerText="Bairro" style="width:100px">
+					<h:outputText value="#{enderecos.bairro}" />
+				</p:column>
+				<p:column headerText="Cep" style="width:100px">
+					<h:outputText value="#{enderecos.cep}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+		<p:panel>
+			<p:dataTable id="doacoes" var="doacoes"
+				value="#{rotaBean.rota.doacaos}" tableStyle="width:auto">
+
+				<p:column headerText="Ids" style="width:100px">
+					<h:outputText value="#{doacoes.id}" />
+				</p:column>
+				<p:column headerText="Data de Entrega">
+					<h:outputText value="#{doacoes.dtEntrega}">
+						<f:convertDateTime pattern="d/M/yyyy"/>
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Data do Pedido">
+					<h:outputText value="#{doacoes.dtPedido}">
+						<f:convertDateTime pattern="d/M/yyyy"/>
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+
+	</h:form>
+</h:body>
+</html>

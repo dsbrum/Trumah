@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13326056815500" configfile="/Trumah/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="cadastrarEndereco" x="338" y="178" id="pf13328027373941" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf13328027373942 pf13328027373943 pf13328027373944" inlinks="pf13328027373942 pf13328027373944 pf13328027373946" path="/cadastrarEndereco.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarEndereco" x="122" y="178" id="pf13328027373945" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13328027373946" inlinks="pf13328027373943" path="/editarEndereco.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="cadastrarUsuario" x="338" y="562" id="pf13328027373750" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf13328035949459 pf133280359494510 pf13348837897570" inlinks="pf133280359494510 pf133280359494512" path="/cadastrarUsuario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarUsuario" x="122" y="562" id="pf133280359494511" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf133280359494512" inlinks="pf13328035949459" path="/editarUsuario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login" x="122" y="946" id="pf13328035949457" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf13354018712080 pf13354018712091" inlinks="pf13354018712091" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index" x="554" y="562" id="pf133280383056415" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf13348837897570" path="/index.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login" x="122" y="1330" id="pf13352202352831" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhmt" x="338" y="946" id="pf13354018712092" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf13354018712080" path="/index.xhmt"/>
+  <links id="pf13328027373943" target="pf13328027373945" source="pf13328027373941" outcome="editar"/>
+  <links id="pf13328027373946" target="pf13328027373941" source="pf13328027373945" outcome="sucesso" fromaction="#{enderecoBean.update}"/>
+  <links id="pf13328035949459" target="pf133280359494511" source="pf13328027373750" outcome="editar"/>
+  <links id="pf133280359494512" target="pf13328027373750" source="pf133280359494511" outcome="sucesso" fromaction="#{usuarioBean.update}"/>
+  <links id="pf13348837897570" target="pf133280383056415" source="pf13328027373750" outcome="sucesso" fromaction="#{usuarioBean.persist}"/>
+  <links id="pf13354018712080" target="pf13354018712092" source="pf13328035949457" outcome="sucesso" fromaction="#{usuarioBean.loggin}"/>
+  <links id="pf13328027373942" target="pf13328027373941" source="pf13328027373941" outcome="sucesso" fromaction="#{enderecoBean.persist}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13328027373944" target="pf13328027373941" source="pf13328027373941" outcome="sucesso" fromaction="#{enderecoBean.remove}">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+  <links id="pf133280359494510" target="pf13328027373750" source="pf13328027373750" outcome="sucesso" fromaction="#{usuarioBean.remove}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13354018712091" target="pf13328035949457" source="pf13328035949457" outcome="falhou" fromaction="#{usuarioBean.loggin}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>

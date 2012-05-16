@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	<managed-bean>
+		<managed-bean-name>enderecoBean</managed-bean-name>
+		<managed-bean-class>br.com.trumah.bean.EnderecoBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>usuarioBean</managed-bean-name>
+		<managed-bean-class>br.com.trumah.bean.UsuarioBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>perfilBean</managed-bean-name>
+		<managed-bean-class>br.com.trumah.bean.PerfilBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>menuBean</managed-bean-name>
+		<managed-bean-class>br.com.trumah.bean.MenuBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rotaBean</managed-bean-name>
+		<managed-bean-class>br.com.trumah.bean.RotaBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>doacaoBean</managed-bean-name>
+		<managed-bean-class>br.com.trumah.bean.DoacaoBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>	
+<!-- Rules do endereco -->	
+	<navigation-rule>
+		<from-view-id>/cadastrarEndereco.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{enderecoBean.persist}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/cadastrarEndereco.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/editarEndereco.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{enderecoBean.remove}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/cadastrarEndereco.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editarEndereco.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{enderecoBean.update}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/cadastrarEndereco.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+<!-- Rules cadastro de usuário -->
+	<navigation-rule>
+		<from-view-id>/cadastrarUsuario.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{usuarioBean.persist}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/editarUsuario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{usuarioBean.remove}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/cadastrarUsuario.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editarUsuario.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{usuarioBean.update}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/cadastrarUsuario.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
+<!-- Rules de login -->	
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{usuarioBean.loggin}</from-action>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/index.xhmt</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{usuarioBean.loggin}</from-action>
+			<from-outcome>falhou</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+<!-- Converters -->	
+	<converter>
+   <converter-id>util.PerfilConverter</converter-id>
+   <converter-class>br.com.trumah.util.PerfilConverter</converter-class>
+</converter>
+	<converter>
+		<converter-id>util.UsuarioConverter</converter-id>
+		<converter-class>br.com.trumah.util.usuarioConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>util.RotaConverter</converter-id>
+		<converter-class>br.com.trumah.util.rotaConverter</converter-class>
+	</converter>
+</faces-config>
+
+

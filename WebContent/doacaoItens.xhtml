@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title></title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel id="ItensIni" header="Novos itens">
+
+			<p:panelGrid columns="2">
+				<h:outputText value="Novos itens da rota n&deg;:"/> 
+				<h:outputText value="#{rotaBean.selectedRota.id} : #{rotaBean.selectedRota.descricao}" style="font-size: large; color:red;font-style:italic"/> 
+				
+				
+				<!-- Analisar a partir daqui -->
+				<h:outputText value="Item" />
+				<h:inputText id="item" value="#{doacaoBean.doacao.itensDoacao.objetos}" />
+
+				
+				<p:commandButton value="Incluir item" actionListener="#{doacaoBean.persist}" ajax="false"/>
+				
+
+			</p:panelGrid>
+		</p:panel>
+		    <p:dataTable id="dataTable" var="itens" value="#{doacaoBean.doacao.itensDoacao}" rendered="#{doacaoBean.doacao.itensDoacao != null}" 
+                 paginator="true" rows="10"  
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                 rowsPerPageTemplate="5,10,15">
+                 
+            <f:facet name="header">  
+            Lista de Rotas  
+        	</f:facet> 
+        	<p:column headerText="Id">
+        		<h:outputText value="#{itens.id}" />
+        	</p:column>
+		   	<p:column headerText="Descricao">
+        		<h:outputText value="#{itens.objetos}" />
+        	</p:column>        	
+        	
+		</p:dataTable>		
+
+
+	</h:form>
+</h:body>
+</html>

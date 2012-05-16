@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+</h:head>
+
+
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="100" header="Trumah"
+			resizable="false" closable="false" collapsible="false">
+			<h:outputText value="Top unit content." />
+			<p:breadCrumb>
+				<p:menuitem value="Perfil" url="cadastrarPerfil.jsf" />
+				<p:menuitem value="Sports" url="#" />
+				<p:menuitem value="Football" url="#" />
+				<p:menuitem value="Countries" url="#" />
+				<p:menuitem value="Spain" url="#" />
+				<p:menuitem value="F.C. Barcelona" url="#" />
+				<p:menuitem value="Squad" url="#" />
+				<p:menuitem value="Login" url="login.jsf" />
+			</p:breadCrumb>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="100" header="Menagens"
+			resizable="true" closable="true" collapsible="true">
+			<h:outputText value="Manutenções agendadas..." />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="200" header="Menu"
+			resizable="false" closable="false" collapsible="true">
+			<h:form>
+				<p:menu model="#{menuBean.model}" />
+			</h:form>
+		</p:layoutUnit>
+		<p:layoutUnit position="center">
+			<h:form>
+            <ui:include src="cadastrarPerfil.xhtml" />
+        </h:form>
+		</p:layoutUnit>
+
+	</p:layout>
+
+
+
+</h:body>
+</html>
