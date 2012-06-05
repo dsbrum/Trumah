@@ -12,8 +12,8 @@ public class Rota {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRota;
 	private String descricao;
-	private RotaTrackCidade rotaTrackCidade;
-	private Doacao doacao;
+
+
 	
 	public int getIdRota() {
 		return idRota;
@@ -27,18 +27,6 @@ public class Rota {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public RotaTrackCidade getRotaTrackCidade() {
-		return rotaTrackCidade;
-	}
-	public void setRotaTrackCidade(RotaTrackCidade rotaTrackCidade) {
-		this.rotaTrackCidade = rotaTrackCidade;
-	}
-	public Doacao getDoacao() {
-		return doacao;
-	}
-	public void setDoacao(Doacao doacao) {
-		this.doacao = doacao;
-	}
-	
+
 
 }

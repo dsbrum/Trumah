@@ -1,10 +1,17 @@
 package br.com.trumah.entity;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Doacao {
@@ -15,11 +22,27 @@ public class Doacao {
 	private Date dataPedido;
 	private Date dataOferta;
 	private Date dateEntrega;
+	
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name="idPj",insertable=true,updatable=true)
 	private PessoaJuridica pessoaJuridica;
+	
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name="idPf",insertable=true,updatable=true)	
 	private PessoaFisica pessoaFisica;
+	
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name="idStatus",insertable=true,updatable=true)	
 	private StatusDoacoes statusDoacoes;
-	private Itens[] itens;
-	private Rota rota;
+	
+	
+	@OneToMany(mappedBy="doacao", fetch = FetchType.LAZY)
+	private List<Itens> itens;
+	
+	
+	@OneToOne
+	private Coordenada coordenada;
+	
 	public Long getNumero() {
 		return Numero;
 	}
@@ -62,16 +85,17 @@ public class Doacao {
 	public void setStatusDoacoes(StatusDoacoes statusDoacoes) {
 		this.statusDoacoes = statusDoacoes;
 	}
-	public Itens[] getItens() {
+	public List<Itens> getItens() {
 		return itens;
 	}
-	public void setItens(Itens[] itens) {
+	public void setItens(List<Itens> itens) {
 		this.itens = itens;
 	}
-	public Rota getRota() {
-		return rota;
+	public Coordenada getCoordenada() {
+		return coordenada;
 	}
-	public void setRota(Rota rota) {
-		this.rota = rota;
+	public void setCoordenada(Coordenada coordenada) {
+		this.coordenada = coordenada;
 	}
+
 }

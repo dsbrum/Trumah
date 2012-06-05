@@ -1,9 +1,12 @@
 package br.com.trumah.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -11,14 +14,19 @@ public class RotaTrackCidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int sequancia;
+	private int sequencia;
+	//Muitas tracks tem uma cidade
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name="idCidade",insertable=true,updatable=true)
 	private Cidade cidade;
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name="idRota",insertable=true,updatable=true)	
 	private Rota rota;
-	public int getSequancia() {
-		return sequancia;
+	public int getSequencia() {
+		return sequencia;
 	}
-	public void setSequancia(int sequancia) {
-		this.sequancia = sequancia;
+	public void setSequencia(int sequencia) {
+		this.sequencia = sequencia;
 	}
 	public Cidade getCidade() {
 		return cidade;

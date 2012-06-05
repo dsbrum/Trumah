@@ -14,7 +14,7 @@ public class Coordenada {
 	private Float latitude;
 	private Float longetude;
 	private String descricao;
-	private Pessoa pessoa;
+
 	
 	public Long getIdCoordenada() {
 		return idCoordenada;
@@ -39,12 +39,6 @@ public class Coordenada {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
 	}
 
 }

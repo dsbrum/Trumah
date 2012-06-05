@@ -1,8 +1,13 @@
 package br.com.trumah.entity;
 
+import java.util.List;
+
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 public class Pessoa {
 
@@ -17,8 +22,13 @@ public class Pessoa {
 	private String cep;
 	private String telefone1;
 	private String telefone2;
+	
+	@OneToOne
 	private Usuario usuario;
-	private Coordenada[] coordenada;
+	
+	
+	@OneToMany(mappedBy="coordenada", fetch = FetchType.LAZY)
+	private List<Coordenada> coordenadas;
 	
 	public Long getCodigoPessoa() {
 		return codigoPessoa;
@@ -74,19 +84,17 @@ public class Pessoa {
 	public void setTelefone2(String telefone2) {
 		this.telefone2 = telefone2;
 	}
+	public List<Coordenada> getCoordenadas() {
+		return coordenadas;
+	}
+	public void setCoordenadas(List<Coordenada> coordenadas) {
+		this.coordenadas = coordenadas;
+	}
 	public Usuario getUsuario() {
 		return usuario;
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	public Coordenada[] getCoordenada() {
-		return coordenada;
-	}
-	public void setCoordenada(Coordenada[] coordenada) {
-		this.coordenada = coordenada;
-	}
-	
-	
 
 }

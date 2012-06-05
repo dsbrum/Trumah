@@ -1,9 +1,13 @@
 package br.com.trumah.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Estado {
@@ -12,7 +16,10 @@ public class Estado {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		
 	private String nome;
 	private String uf;
-	private Cidade[] cidade;
+	
+	@OneToMany(mappedBy="estado", fetch = FetchType.LAZY)
+	private List<Cidade> cidades;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -25,10 +32,11 @@ public class Estado {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	public Cidade[] getCidade() {
-		return cidade;
+	public List<Cidade> getCidades() {
+		return cidades;
 	}
-	public void setCidade(Cidade[] cidade) {
-		this.cidade = cidade;
+	public void setCidades(List<Cidade> cidades) {
+		this.cidades = cidades;
 	}
+
 }

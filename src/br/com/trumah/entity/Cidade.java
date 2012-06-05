@@ -1,9 +1,12 @@
 package br.com.trumah.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -12,8 +15,13 @@ public class Cidade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private String nome;
+	
+	//Muitos Itens em uma doacao
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name="idEstado",insertable=true,updatable=true)
 	private Estado estado;
-	private RotaTrackCidade rotaTrackCidade;
+	
+
 	public String getNome() {
 		return nome;
 	}
@@ -25,12 +33,6 @@ public class Cidade {
 	}
 	public void setEstado(Estado estado) {
 		this.estado = estado;
-	}
-	public RotaTrackCidade getRotaTrackCidade() {
-		return rotaTrackCidade;
-	}
-	public void setRotaTrackCidade(RotaTrackCidade rotaTrackCidade) {
-		this.rotaTrackCidade = rotaTrackCidade;
 	}
 	
 }
