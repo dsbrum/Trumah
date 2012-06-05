@@ -4,7 +4,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
-import bckp.entity.Usuario;
+import br.com.trumah.entity.Usuario;
 
 public class usuarioConverter implements Converter {
 	
