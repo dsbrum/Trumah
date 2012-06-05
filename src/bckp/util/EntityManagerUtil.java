@@ -1,4 +1,4 @@
-package br.com.trumah.util;
+package bckp.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

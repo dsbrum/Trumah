@@ -1,4 +1,4 @@
-package br.com.trumah.dao;
+package bckp.dao;
 
 public class DAOException extends RuntimeException {
 

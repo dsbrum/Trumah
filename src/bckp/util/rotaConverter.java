@@ -1,4 +1,4 @@
-package br.com.trumah.util;
+package bckp.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
-public class PerfilConverter implements Converter {
+public class rotaConverter implements Converter {
 	
 	  private int index;
 

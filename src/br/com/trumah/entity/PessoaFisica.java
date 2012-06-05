@@ -1,56 +1,17 @@
 package br.com.trumah.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 
-@Entity
-@PrimaryKeyJoinColumn(name="id")
-public class PessoaFisica extends Elegivel {
+public class PessoaFisica extends Pessoa {
 
-	public PessoaFisica(Long id, String email, String telefone) {
-		super(id, email, telefone);
-	}
-	private String cpf;
-	private String rg;
+	private int cpf;
+
 	private String nome;
 
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	@Override
-	public void setId() {
-		super.setId(getId());
-		
-	}
+	private String rg;
 
-	@Override
-	public void setEmail() {
-		super.setEmail(getEmail());
-		
-	}
+	private Date dataNascimento;
 
-	@Override
-	public void setTelefone() {
-		super.setTelefone(getTelefone());
-		
-	}
-	
-	
-	
+	private Doacao[] doacao;
 
 }

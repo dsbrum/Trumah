@@ -1,4 +1,4 @@
-package br.com.trumah.dao;
+package bckp.dao;
 
 import java.util.List;
 
